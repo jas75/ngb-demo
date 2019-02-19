@@ -133,6 +133,16 @@ module.exports = function(options) {
         ignored: /node_modules/
       },
       /**
+       * You can define a proxy for local development
+       */
+      // proxy:{
+      //   "/api/**": {
+      //     target: "http://MY_API_URL",
+      //     changeOrigin: true,
+      //     secure: false
+      //   }
+      // },
+      /**
        * Here you can access the Express app object and add your own custom middleware to it.
        *
        * See: https://webpack.js.org/configuration/dev-server/

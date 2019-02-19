@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -14,12 +14,35 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
-import { DevModuleModule } from './+dev-module';
+import { HomeComponent } from './pages/home';
+import { NoContentComponent } from './pages/no-content';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+/* DataAccess - Business */
+// Import your business here
+
+/* DataAccess - Data */
+// Import your data here
+
+/* Components */
+// Import your components here
+
+/* Pages */
+// Import your pages here
+
+/* Pipes */
+// Import your pipes here
+
+/* Modals */
+import { ConfirmComponent } from './modals/confirm';
+
+/* Utils */
+import { HttpInterceptorService } from './utils/http-interceptor.service';
+import { AuthenticationService } from './utils/authentication.service';
+import { ModalService  } from './utils/modal.service';
+
+/* Styles */
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -42,10 +65,12 @@ interface StoreType {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
+    /* Modals */
+    ConfirmComponent,
+    /* Pages */
     HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    /* Pipes */
   ],
   /**
    * Import Angular's modules.
@@ -59,20 +84,24 @@ interface StoreType {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
     }),
-
-    /**
-     * This section will import the `DevModuleModule` only in certain build types.
-     * When the module is not imported it will get tree shaked.
-     * This is a simple example, a big app should probably implement some logic
-     */
-    ...environment.showDevModule ? [ DevModuleModule ] : [],
+    NgbModule.forRoot(),
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
    */
   providers: [
     environment.ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
+    /* DataAccess - Business */
+    /* DataAccess - Data */
+    /* Utils */
+    AuthenticationService,
+    ModalService,
+  ],
+  entryComponents: [
+    /* Modals */
+    ConfirmComponent,
   ]
 })
 export class AppModule {}

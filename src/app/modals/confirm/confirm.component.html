@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h3 class="modal-title color-blue">{{title}}</h3>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span>&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div text-center [innerHTML]="message">
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-secondary btn-lg btn-secondary-light-blue" type="button" (click)="dismiss()">Cancel</button>
+    <button class="btn btn-primary btn-lg btn-primary-light-blue" type="submit" (click)="send()">Confirm</button>
+</div>
