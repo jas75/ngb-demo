@@ -12,9 +12,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 /**
  * Load the implementations that should be tested.
  */
-import { AppState } from '../app.service';
+import { AppState } from '../../app.service';
 import { HomeComponent } from './home.component';
-import { Title } from './title';
 
 describe(`Home`, () => {
   let comp: HomeComponent;
@@ -31,7 +30,7 @@ describe(`Home`, () => {
       declarations: [HomeComponent],
       schemas: [NO_ERRORS_SCHEMA],
       imports: [HttpClientTestingModule],
-      providers: [AppState, Title]
+      providers: [AppState]
     })
 
       /**
@@ -58,10 +57,6 @@ describe(`Home`, () => {
 
   it('should have default data', () => {
     expect(comp.localState).toEqual({ value: '' });
-  });
-
-  it('should have a title', () => {
-    expect(!!comp.title).toEqual(true);
   });
 
   it('should log ngOnInit', () => {

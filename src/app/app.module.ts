@@ -40,7 +40,7 @@ import { ConfirmComponent } from './modals/confirm';
 /* Utils */
 import { HttpInterceptorService } from './utils/http-interceptor.service';
 import { AuthenticationService } from './utils/authentication.service';
-import { ModalService  } from './utils/modal.service';
+import { ModalService } from './utils/modal.service';
 
 /* Styles */
 import '../styles/styles.scss';
