@@ -11,7 +11,7 @@
 
 # Stage 1, based on Node.js, to build and compile Angular
 
-FROM node:8.9.4-alpine as builder
+FROM node:12.16.3-alpine as builder
 
 COPY package.json ./
 
@@ -26,7 +26,7 @@ RUN npm run build:aot:prod
 
 # Stage 2, based on Nginx, to have only the compiled app, ready for production with Nginx
 
-FROM nginx:1.13.9-alpine
+FROM nginx:1.17.10-alpine
 
 COPY ./config/nginx-custom.conf /etc/nginx/conf.d/default.conf
                                   

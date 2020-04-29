@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +18,7 @@ import { HomeComponent } from './pages/home';
 import { NoContentComponent } from './pages/no-content';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 /* DataAccess - Business */
 // Import your business here
@@ -65,6 +66,7 @@ interface StoreType {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
+    /* Components */
     /* Modals */
     ConfirmComponent,
     /* Pages */
@@ -84,7 +86,9 @@ interface StoreType {
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
     }),
-    NgbModule.forRoot(),
+    NgbModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
