@@ -11,6 +11,10 @@ module.exports = {
         return text.replace(/(^\w|-\w)/g, module.exports.clearAndUpper);
     },
 
+    toCamelCase: (text) => {
+        return text.replace(/-\w/g, module.exports.clearAndUpper);
+    },
+
     clearAndUpper: (text) =>  {
         return text.replace(/-/, "").toUpperCase();
     },
