@@ -85,7 +85,8 @@
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
     "newPage": "node scripts/createPage.js",
-    "newComponent": "node scripts/createComponent.js"
+    "newComponent": "node scripts/createComponent.js",
+    "newModal": "node scripts/createModal.js"
   },
   "dependencies": {
     "@angular/animations": "^9.1.3",

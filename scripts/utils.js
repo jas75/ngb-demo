@@ -7,10 +7,12 @@ module.exports = {
         fs.writeFileSync(file, result, 'utf8');
     },
     
+    /** convert kebab-case to PascalCase */
     toPascalCase: (text) => {
         return text.replace(/(^\w|-\w)/g, module.exports.clearAndUpper);
     },
 
+    /** convert kebab-case to camelCase */
     toCamelCase: (text) => {
         return text.replace(/-\w/g, module.exports.clearAndUpper);
     },

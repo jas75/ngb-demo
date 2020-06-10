@@ -1,0 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
+@Component({
+    selector: '{{ fileName }}',
+    templateUrl: './{{ fileName }}.component.html',
+    styleUrls: ['./{{ fileName }}.component.scss']
+})
+export class {{ PascalCase }}Component implements OnInit {
+  constructor(private activeModal: NgbActiveModal) {
+    // constructor
+  }
+
+  public ngOnInit() {
+    // init
+  }
+
+  public dismiss(): void {
+    this.activeModal.dismiss(false);
+  }
+}
