@@ -1,0 +1,10 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'my{{ PascalCase }}'
+})
+export class {{ PascalCase }} implements PipeTransform {
+  public transform(/* PARAMETERS, FIX ME */): void/* RETURN TYPE, FIX ME */ {
+    // BODY, FIX ME
+  }
+}
