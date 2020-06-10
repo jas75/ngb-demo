@@ -27,7 +27,7 @@ if (name.indexOf('/') !== -1) {
     var path = './src/app/pages/';
     for (var i = 0; i < arr.length; i++) {
         if (!fs.existsSync(path + arr[i])) {
-            mkdirp(path + arr[i]);
+            mkdirp.sync(path + arr[i]);
         }
         path += arr[i] + '/';
         if (i < arr.length -1) {
@@ -35,12 +35,12 @@ if (name.indexOf('/') !== -1) {
         }
     }
 } else {
-    mkdirp(pagePath);
+    mkdirp.sync(pagePath);
 }
 
 fs.closeSync(fs.openSync(pagePath + name + '.component.scss', 'w'));
 fs.closeSync(fs.openSync(pagePath + name + '.component.html', 'w'));
-fs.copyFileSync('./scripts/models/page.ts', pagePath + name + '.component.ts');
+fs.copyFileSync('./scripts/models/component', pagePath + name + '.component.ts');
 fs.writeFileSync(pagePath + 'index.ts', 'export * from \'./' + name + '.component\';', 'utf8');
 
 utils.replaceInFile(pagePath + name + '.component.ts', name);

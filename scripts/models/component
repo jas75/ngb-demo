@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./{{ fileName }}.component.scss']
 })
 export class {{ PascalCase }}Component implements OnInit {
+  constructor() {
+    // constructor
+  }
+
   public ngOnInit() {
-    // TODO
+    // init
   }
 }
