@@ -14,31 +14,31 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { HomeComponent } from './pages/home';
-import { NoContentComponent } from './pages/no-content';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
-/* DataAccess - Business */
+/* Import - DataAccess - Business */
 // Import your business here
 
-/* DataAccess - Data */
+/* Import - DataAccess - Data */
 // Import your data here
 
-/* Components */
+/* Import - Components */
 // Import your components here
 
-/* Pages */
+/* Import - Pages */
 // Import your pages here
+import { HomeComponent } from './pages/home';
+import { NoContentComponent } from './pages/no-content';
 
-/* Pipes */
+/* Import - Pipes */
 // Import your pipes here
 
-/* Modals */
+/* Import - Modals */
 import { ConfirmComponent } from './modals/confirm';
 
-/* Utils */
+/* Import - Utils */
 import { HttpInterceptorService } from './utils/http-interceptor.service';
 import { AuthenticationService } from './utils/authentication.service';
 import { ModalService } from './utils/modal.service';
@@ -66,13 +66,14 @@ interface StoreType {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    /* Components */
-    /* Modals */
+    /* Declarations - Components */
+    /* Declarations - Modals */
     ConfirmComponent,
-    /* Pages */
+    /* Declarations - Pages */
     HomeComponent,
     NoContentComponent,
-    /* Pipes */
+    /* Declarations - Pipes */
+    /* End Declarations */
   ],
   /**
    * Import Angular's modules.
@@ -97,15 +98,17 @@ interface StoreType {
     environment.ENV_PROVIDERS,
     APP_PROVIDERS,
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
-    /* DataAccess - Business */
-    /* DataAccess - Data */
-    /* Utils */
+    /* Providers - DataAccess - Business */
+    /* Providers - DataAccess - Data */
+    /* Providers - Utils */
     AuthenticationService,
     ModalService,
+    /* End Providers */
   ],
   entryComponents: [
-    /* Modals */
+    /* EntryComponents - Modals */
     ConfirmComponent,
+    /* EntryComponents - End */
   ]
 })
 export class AppModule {}
