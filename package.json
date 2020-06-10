@@ -86,7 +86,8 @@
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
     "newPage": "node scripts/createPage.js",
     "newComponent": "node scripts/createComponent.js",
-    "newModal": "node scripts/createModal.js"
+    "newModal": "node scripts/createModal.js",
+    "newModel": "node scripts/createModel.js"
   },
   "dependencies": {
     "@angular/animations": "^9.1.3",
