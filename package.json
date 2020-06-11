@@ -89,7 +89,8 @@
     "newModal": "node scripts/createModal.js",
     "newModel": "node scripts/createModel.js",
     "newPipe": "node scripts/createPipe.js",
-    "newDA": "node scripts/createDA.js"
+    "newDA": "node scripts/createDA.js",
+    "newService": "node scripts/createService.js"
   },
   "dependencies": {
     "@angular/animations": "^9.1.3",
