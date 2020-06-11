@@ -6,13 +6,18 @@ var args = process.argv.slice(2);
 
 if (args.length === 0) {
     console.log('Error: Missing argument.');
-    console.log('Usage:');
-    console.log('npm run newPage [name]');
-    console.log('[name] must be in kebab case. Example : npm run newPage my-new-page');
+    printUsage();
     return;
 }
 
 var name = args[0];
+
+if (!utils.isValidKebabCase(name)) {
+    console.log('Error: argument must be in kebab-case.');
+    printUsage();
+    return;
+}
+
 var dirName = './pages/';
 
 var pagePath = './src/app/pages/' + name + '/';
@@ -57,3 +62,9 @@ utils.writeBefore('./src/app/app.routes.ts', '];', '  { path: \'' + utils.toCame
 
 console.log(name + ' added !');
 console.log('Don\'t forget to update app.routes.ts !');
+
+function printUsage() {
+    console.log('Usage:');
+    console.log('npm run newPage [name]');
+    console.log('[name] must be in kebab case. Example : npm run newPage my-new-page');
+}

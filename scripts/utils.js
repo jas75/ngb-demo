@@ -23,6 +23,14 @@ module.exports = {
         return text.replace(/-/, "").toUpperCase();
     },
 
+    isValidCamelCase: (text) => {
+        return !(/\-/.test(text)) && !(/[A-Z]/.test(text[0]));
+    },
+
+    isValidKebabCase: (text) => {
+        return !(/[A-Z]/.test(text));
+    },
+
     writeBefore: (file, beforeValue, content, offset = 0) => {
         var fs = require('fs');
         var data = fs.readFileSync(file, 'utf8');

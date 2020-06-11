@@ -6,13 +6,18 @@ var args = process.argv.slice(2);
 
 if (args.length === 0) {
     console.log('Error: Missing argument.');
-    console.log('Usage:');
-    console.log('npm run newPipe [name]');
-    console.log('[name] must be in camelCase. Example : npm run newPipe myNewPipe');
+    printUsage();
     return;
 }
 
 var name = args[0];
+
+if (!utils.isValidCamelCase(name)) {
+    console.log('Error: argument must be in camelCase.');
+    printUsage();
+    return;
+}
+
 var dirName = './pipes/';
 
 var pipePath = './src/app/pipes/';
@@ -45,3 +50,9 @@ utils.writeBefore('./src/app/app.module.ts', '/* End Declarations */', '    ' + 
 
 console.log(name + ' added !');
 console.log('Don\'t forget to fix the transform method !');
+
+function printUsage() {
+    console.log('Usage:');
+    console.log('npm run newPipe [name]');
+    console.log('[name] must be in camelCase. Example : npm run newPipe myNewPipe');
+}

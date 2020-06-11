@@ -6,13 +6,18 @@ var args = process.argv.slice(2);
 
 if (args.length === 0) {
     console.log('Error: Missing argument.');
-    console.log('Usage:');
-    console.log('npm run newModal [name]');
-    console.log('[name] must be in kebab-case. Example : npm run newModal my-new-modal');
+    printUsage();
     return;
 }
 
 var name = args[0];
+
+if (!utils.isValidKebabCase(name)) {
+    console.log('Error: argument must be in kebab-case.');
+    printUsage();
+    return;
+}
+
 var dirName = './modals/';
 
 var modalPath = './src/app/modals/' + name + '/';
@@ -54,3 +59,9 @@ utils.writeBefore('./src/app/app.module.ts', '/* Declarations - Pages */', '    
 utils.writeBefore('./src/app/app.module.ts', '/* EntryComponents - End */', '    ' + className + ',');
 
 console.log(name + ' added !');
+
+function printUsage() {
+    console.log('Usage:');
+    console.log('npm run newModal [name]');
+    console.log('[name] must be in kebab-case. Example : npm run newModal my-new-modal');
+}

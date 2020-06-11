@@ -6,13 +6,18 @@ var args = process.argv.slice(2);
 
 if (args.length === 0) {
     console.log('Error: Missing argument.');
-    console.log('Usage:');
-    console.log('npm run newService [name]');
-    console.log('[name] must be in kebab-case. Example : npm run newService my-new-service');
+    printUsage();
     return;
 }
 
 var name = args[0];
+
+if (!utils.isValidKebabCase(name)) {
+    console.log('Error: argument must be in kebab-case.');
+    printUsage();
+    return;
+}
+
 var dirName = './utils/';
 
 var utilsPath = './src/app/utils/';
@@ -44,3 +49,9 @@ utils.writeBefore('./src/app/app.module.ts', '/* Styles */', 'import { ' + class
 utils.writeBefore('./src/app/app.module.ts', '/* End Providers */', '    ' + className + ',');
 
 console.log(name + ' added !');
+
+function printUsage() {
+    console.log('Usage:');
+    console.log('npm run newService [name]');
+    console.log('[name] must be in kebab-case. Example : npm run newService my-new-service');
+}

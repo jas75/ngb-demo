@@ -6,13 +6,18 @@ var args = process.argv.slice(2);
 
 if (args.length === 0) {
     console.log('Error: Missing argument.');
-    console.log('Usage:');
-    console.log('npm run newDA [name]');
-    console.log('[name] must be in camelCase. Example : npm run newDA myNewDA');
+    printUsage();
     return;
 }
 
 var name = args[0];
+
+if (!utils.isValidCamelCase(name)) {
+    console.log('Error: argument must be in camelCase.');
+    printUsage();
+    return;
+}
+
 var businessDirName = './data-access/business/';
 var dataDirName = './data-access/data/';
 
@@ -66,3 +71,9 @@ utils.writeBefore('./src/app/app.module.ts', '/* Import - Components */', 'impor
 utils.writeBefore('./src/app/app.module.ts', '/* Providers - Utils */', '    ' + dataClassName + ',');
 
 console.log(name + ' business & data added !');
+
+function printUsage() {
+    console.log('Usage:');
+    console.log('npm run newDA [name]');
+    console.log('[name] must be in camelCase. Example : npm run newDA myNewDA');
+}

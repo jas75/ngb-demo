@@ -1,17 +1,22 @@
 var mkdirp = require('mkdirp');
 var fs = require('fs');
+var utils = require('./utils.js');
 
 var args = process.argv.slice(2);
 
 if (args.length === 0) {
     console.log('Error: Missing argument.');
-    console.log('Usage:');
-    console.log('npm run newModel [name]');
-    console.log('[name] must be in camelCase. Example : npm run newModel myNewModel');
+    printUsage();
     return;
 }
 
 var name = args[0];
+
+if (!utils.isValidCamelCase(name)) {
+    console.log('Error: argument must be in camelCase.');
+    printUsage();
+    return;
+}
 
 var modelPath = './src/app/models/';
 if (fs.existsSync(modelPath + name + '.ts')) {
@@ -33,3 +38,9 @@ if (name.indexOf('/') !== -1) {
 fs.writeFileSync(modelPath + name + '.ts', 'export class ' + name.charAt(0).toUpperCase() + name.slice(1) + ' {\n}\n', 'utf8');
 
 console.log(name + ' added !');
+
+function printUsage() {
+    console.log('Usage:');
+    console.log('npm run newModel [name]');
+    console.log('[name] must be in camelCase. Example : npm run newModel myNewModel');
+}
