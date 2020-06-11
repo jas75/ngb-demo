@@ -43,7 +43,10 @@ fs.closeSync(fs.openSync(pagePath + name + '.component.html', 'w'));
 fs.copyFileSync('./scripts/models/component', pagePath + name + '.component.ts');
 fs.writeFileSync(pagePath + 'index.ts', 'export * from \'./' + name + '.component\';', 'utf8');
 
-utils.replaceInFile(pagePath + name + '.component.ts', name);
+utils.replaceInFile(pagePath + name + '.component.ts', [
+    { regex: /{{ fileName }}/g, value: name },
+    { regex: /{{ PascalCase }}/g, value: utils.toPascalCase(name) },
+]);
 
 var className = utils.toPascalCase(name) + 'Component';
 utils.writeBefore('./src/app/app.module.ts', '/* Import - Pipes */', 'import { ' + className + ' } from \'' + dirName + name + '\';', 1);

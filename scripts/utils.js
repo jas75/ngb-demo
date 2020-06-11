@@ -1,9 +1,11 @@
 module.exports = {
-    replaceInFile: (file, value) => {
+    replaceInFile: (file, replaceValues) => {
         var fs = require('fs');
-        var data = fs.readFileSync(file, 'utf8');
-        var result = data.replace(/{{ fileName }}/g, value);
-        result = result.replace(/{{ PascalCase }}/g, module.exports.toPascalCase(value));
+        var result = fs.readFileSync(file, 'utf8');
+        for (var i = 0; i < replaceValues.length; i++) {
+            elt = replaceValues[i];
+            result = result.replace(elt.regex, elt.value);
+        }
         fs.writeFileSync(file, result, 'utf8');
     },
     

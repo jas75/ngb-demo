@@ -35,7 +35,9 @@ if (name.indexOf('/') !== -1) {
 
 fs.copyFileSync('./scripts/models/pipe', pipePath + name + '.pipe.ts');
 
-utils.replaceInFile(pipePath + name + '.pipe.ts', name);
+utils.replaceInFile(pipePath + name + '.pipe.ts', [
+    { regex: /{{ PascalCase }}/g, value: utils.toPascalCase(name) },
+]);
 
 var className = utils.toPascalCase(name);
 utils.writeBefore('./src/app/app.module.ts', '/* Import - Modals */', 'import { ' + className + ' } from \'' + dirName + name + '.pipe\';', 1);

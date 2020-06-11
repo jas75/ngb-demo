@@ -1,0 +1,7 @@
+import { Injectable } from '@angular/core';
+import { {{ PascalCase }}Data } from '{{ folderBack }}../data/{{ folderForward }}{{ fileName }}.data';
+
+@Injectable()
+export class {{ PascalCase }}Business {
+    constructor(private {{ fileName }}Data: {{ PascalCase }}Data) {}
+}
