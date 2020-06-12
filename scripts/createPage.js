@@ -58,7 +58,12 @@ utils.writeBefore('./src/app/app.module.ts', '/* Import - Pipes */', 'import { '
 utils.writeBefore('./src/app/app.module.ts', '/* Declarations - Pipes */', '    ' + className + ',');
 
 utils.writeBefore('./src/app/app.routes.ts', 'export const ROUTES: Routes = [', 'import { ' + className + ' } from \'' + dirName + name + '\';', 1);
-utils.writeBefore('./src/app/app.routes.ts', '];', '  { path: \'' + utils.toCamelCase(name) + '\', component: ' + className + ' },');
+
+if (fs.readFileSync('./src/app/app.routes.ts', 'utf8').indexOf('**') !== -1) {
+    utils.writeBefore('./src/app/app.routes.ts', '**', '  { path: \'' + utils.toCamelCase(name) + '\', component: ' + className + ' },');
+} else {
+    utils.writeBefore('./src/app/app.routes.ts', '];', '  { path: \'' + utils.toCamelCase(name) + '\', component: ' + className + ' },');
+}
 
 console.log(name + ' added !');
 console.log('Don\'t forget to update app.routes.ts !');

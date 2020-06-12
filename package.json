@@ -84,13 +84,13 @@
     "webdriver:update": "node ./node_modules/protractor/bin/webdriver-manager update",
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
-    "newPage": "node scripts/createPage.js",
-    "newComponent": "node scripts/createComponent.js",
-    "newModal": "node scripts/createModal.js",
-    "newModel": "node scripts/createModel.js",
-    "newPipe": "node scripts/createPipe.js",
-    "newDA": "node scripts/createDA.js",
-    "newService": "node scripts/createService.js"
+    "new-page": "node scripts/createPage.js",
+    "new-component": "node scripts/createComponent.js",
+    "new-modal": "node scripts/createModal.js",
+    "new-model": "node scripts/createModel.js",
+    "new-pipe": "node scripts/createPipe.js",
+    "new-da": "node scripts/createDA.js",
+    "new-service": "node scripts/createService.js"
   },
   "dependencies": {
     "@angular/animations": "^9.1.3",
