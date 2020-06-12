@@ -52,6 +52,6 @@ console.log(name + ' added !');
 
 function printUsage() {
     console.log('Usage:');
-    console.log('npm run newService [name]');
-    console.log('[name] must be in kebab-case. Example : npm run newService my-new-service');
+    console.log('npm run new-service [name]');
+    console.log('[name] must be in kebab-case. Example : npm run new-service my-new-service');
 }

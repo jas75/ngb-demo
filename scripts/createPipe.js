@@ -53,6 +53,6 @@ console.log('Don\'t forget to fix the transform method !');
 
 function printUsage() {
     console.log('Usage:');
-    console.log('npm run newPipe [name]');
-    console.log('[name] must be in camelCase. Example : npm run newPipe myNewPipe');
+    console.log('npm run new-pipe [name]');
+    console.log('[name] must be in camelCase. Example : npm run new-pipe myNewPipe');
 }

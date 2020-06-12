@@ -70,6 +70,6 @@ console.log('Don\'t forget to update app.routes.ts !');
 
 function printUsage() {
     console.log('Usage:');
-    console.log('npm run newPage [name]');
-    console.log('[name] must be in kebab case. Example : npm run newPage my-new-page');
+    console.log('npm run new-page [name]');
+    console.log('[name] must be in kebab case. Example : npm run new-page my-new-page');
 }

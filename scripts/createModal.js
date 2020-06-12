@@ -62,6 +62,6 @@ console.log(name + ' added !');
 
 function printUsage() {
     console.log('Usage:');
-    console.log('npm run newModal [name]');
-    console.log('[name] must be in kebab-case. Example : npm run newModal my-new-modal');
+    console.log('npm run new-modal [name]');
+    console.log('[name] must be in kebab-case. Example : npm run new-modal my-new-modal');
 }

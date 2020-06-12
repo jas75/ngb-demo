@@ -74,6 +74,6 @@ console.log(name + ' business & data added !');
 
 function printUsage() {
     console.log('Usage:');
-    console.log('npm run newDA [name]');
-    console.log('[name] must be in camelCase. Example : npm run newDA myNewDA');
+    console.log('npm run new-da [name]');
+    console.log('[name] must be in camelCase. Example : npm run new-da myNewDA');
 }

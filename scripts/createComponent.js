@@ -61,6 +61,6 @@ console.log(name + ' added !');
 
 function printUsage() {
     console.log('Usage:');
-    console.log('npm run newComponent [name]');
-    console.log('[name] must be in kebab case. Example : npm run newComponent my-new-component');
+    console.log('npm run new-component [name]');
+    console.log('[name] must be in kebab case. Example : npm run new-component my-new-component');
 }

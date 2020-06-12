@@ -41,6 +41,6 @@ console.log(name + ' added !');
 
 function printUsage() {
     console.log('Usage:');
-    console.log('npm run newModel [name]');
-    console.log('[name] must be in camelCase. Example : npm run newModel myNewModel');
+    console.log('npm run new-model [name]');
+    console.log('[name] must be in camelCase. Example : npm run new-model myNewModel');
 }
